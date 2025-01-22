@@ -4,21 +4,21 @@ import { StyleSheet, GestureResponderEvent, Text, TouchableOpacity } from 'react
 type ButtonProps = PropsWithChildren<{
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   title: string;
-  containerStyle?: {} | undefined;
+  buttonStyle?: {} | undefined;
   textStyle?: {} | undefined;
 }>;
 
 function CustomButton({
   onPress, 
   title, 
-  containerStyle = styles.buttonContainer,
-  textStyle = styles.buttonText 
+  buttonStyle = styles.buttonStyle,
+  textStyle = styles.textStyle 
 }: ButtonProps): React.JSX.Element {
   const accessibilityLabel = `${title} button`;
 
   return (
     <TouchableOpacity  
-      style={containerStyle} 
+      style={buttonStyle} 
       onPress={onPress} 
       accessibilityLabel={accessibilityLabel}
     >
@@ -28,12 +28,12 @@ function CustomButton({
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
+  buttonStyle: {
       margin: 0,
       padding: 10,
       backgroundColor: "#2196F3",
     },
-    buttonText: {
+    textStyle: {
       color: "#ffffff",
       textAlign: "center",
       textTransform: "uppercase",

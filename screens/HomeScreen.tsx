@@ -1,24 +1,34 @@
-import { View, Text, StyleSheet } from "react-native";
+import { Text, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import Accordian from "../components/Accordian";
 
 function HomeScreen(): React.JSX.Element {
+  const items = ['New Releases','Recommendations','Action','Puzzle','Mystery','RPG','VR']
+
+
   return (
-    <View style={styles.container}>
-        <Text style={styles.text}>Home Screen</Text>
+    <View>
+      <View style={styles.toolbar}><Text>Toolbar</Text></View>
+      <SafeAreaView style={styles.content}>
+        <ScrollView>
+          {
+            items.map((item, _) => (
+              <Accordian title={item} isInitiallyOpen={true}></Accordian>
+            ))
+          }
+        </ScrollView>
+      </SafeAreaView>
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        justifyContent: "center",
-        height: "100%"
-    },
-    text: {
-        textAlign: "center",
-        fontSize: 25,
-        fontWeight: "bold"
-    }
+  toolbar: {
+    backgroundColor: "lightgrey",
+    padding: 10
+  },
+  content: {
+    margin: 10
+  },
 });
 
 export default HomeScreen;
