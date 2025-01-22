@@ -11,7 +11,7 @@ function HomeScreen(): React.JSX.Element {
       <SafeAreaView style={styles.content}>
         <ScrollView>
           {
-            items.map((item, index) => (
+            items.map((item, _) => (
               <Accordian title={item} isInitiallyOpen={true}></Accordian>
             ))
           }

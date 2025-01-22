@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Button, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import Modal from 'react-native-modal';
 
 export type GameData = {
     id: string;
@@ -7,40 +8,56 @@ export type GameData = {
 };
 
 type GameProps = {
-    item: GameData;
-    onPress: () => void;
-    backgroundColor: string;
-    textColor: string;
   };
 
-function Game({item, onPress, backgroundColor, textColor}: GameProps) {
+function Game() {
     const [isOpen, setIsOpen] = useState(false);
-    
+
+    const toggleModal = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <View>
-            <TouchableOpacity onPress={() => {setIsOpen(!isOpen)}}>
-                <View style={styles.gameCover}></View>
-                {
-                    isOpen && 
-                    <Text>
+            <TouchableOpacity style={styles.container} onPress={toggleModal}>
+                <View style={styles.cover}></View>
+            </TouchableOpacity>
+            <Modal isVisible={isOpen} onBackdropPress={toggleModal}>
+                <View style={styles.overlay}>
+                    <Text style={styles.overlayText}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
                         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
                         non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </Text>
-                }
-            </TouchableOpacity>
+                    <Button title="Close" onPress={toggleModal} />
+                </View>
+            </Modal>
         </View>
     )
 }
     
 const styles = StyleSheet.create({
-    gameCover: {
-        backgroundColor: "grey",
-        width: 45,
-        height: 80,
+    container: {
+        flex: 1,
+        flexDirection: "column",
         marginRight: 45
+    },
+    cover: {
+        backgroundColor: "grey",
+        width: 120,
+        height: 67.5,
+    }, 
+    overlay: {
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+      },
+    overlayText: {
+        marginBottom: 10,
+        fontSize: 16,
     },
 });
 

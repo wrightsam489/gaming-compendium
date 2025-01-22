@@ -44,12 +44,7 @@ function Accordian({title, isInitiallyOpen = false}: AccordianProps) {
         const color = item.id === selectedId ? 'white' : 'black';
     
         return (
-          <Game
-            item={item}
-            onPress={() => setSelectedId(item.id)}
-            backgroundColor={backgroundColor}
-            textColor={color}
-          />
+          <Game />
         );
     }
 
