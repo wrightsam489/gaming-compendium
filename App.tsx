@@ -13,8 +13,7 @@ import {
 } from 'react-native';
 
 import HomeScreen from './screens/HomeScreen';
-import CustomButton from './components/StyledButton';
-import LoadingScreen from './screens/LoadingScreen';
+import Login from './screens/Login';
 
 function App(): React.JSX.Element {
 
@@ -22,12 +21,7 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={styles.mainView}>
-      <CustomButton 
-        onPress={() => {setIsShowingText(!isShowingText)}} 
-        title='Toggle View'
-      />
-      {isShowingText && <HomeScreen />}
-      {!isShowingText && <LoadingScreen />}
+      <Login />
     </SafeAreaView>
   )
 };
