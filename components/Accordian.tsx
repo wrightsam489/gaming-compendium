@@ -2,6 +2,7 @@ import { PropsWithChildren, useState } from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Header from './Header';
 import Game, { GameData } from "./Game";
+import React from "react";
 
 type AccordianProps = PropsWithChildren<{
   title: string;
@@ -44,12 +45,7 @@ function Accordian({title, isInitiallyOpen = false}: AccordianProps) {
         const color = item.id === selectedId ? 'white' : 'black';
     
         return (
-          <Game
-            item={item}
-            onPress={() => setSelectedId(item.id)}
-            backgroundColor={backgroundColor}
-            textColor={color}
-          />
+          <Game />
         );
     }
 

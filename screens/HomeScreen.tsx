@@ -1,5 +1,6 @@
 import { Text, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import Accordian from "../components/Accordian";
+import React from "react";
 
 function HomeScreen(): React.JSX.Element {
   const items = ['New Releases','Recommendations','Action','Puzzle','Mystery','RPG','VR']
@@ -11,7 +12,7 @@ function HomeScreen(): React.JSX.Element {
       <SafeAreaView style={styles.content}>
         <ScrollView>
           {
-            items.map((item, index) => (
+            items.map((item, _) => (
               <Accordian title={item} isInitiallyOpen={true}></Accordian>
             ))
           }
