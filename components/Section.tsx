@@ -1,8 +1,8 @@
+import * as React from 'react';
 import { PropsWithChildren } from 'react';
 import { useColorScheme, View, Text, StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Header from './Header';
-import React from 'react';
 
 type SectionProps = PropsWithChildren<{
   title: string;

@@ -1,8 +1,9 @@
+import * as React from 'react';
 import { View, Text, Button, TextInput, StyleSheet, SafeAreaView } from "react-native";
 import Header from "../components/Header";
 import { useState } from "react";
 import LinkButton from "../components/LinkButton";
-import React from "react";
+import SubmitButton from '../components/SubmitButton';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -25,7 +26,7 @@ function Login() {
                     placeholder="Password"
                     onChangeText={setPassword}
                 />
-                <Button title="Submit" />
+                <SubmitButton />
 
                 <View style={styles.groupButtons}>
                     <LinkButton title="Create new account"/>

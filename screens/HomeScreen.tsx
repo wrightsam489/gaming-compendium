@@ -1,6 +1,6 @@
+import * as React from 'react';
 import { Text, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import Accordian from "../components/Accordian";
-import React from "react";
 
 function HomeScreen(): React.JSX.Element {
   const items = ['New Releases','Recommendations','Action','Puzzle','Mystery','RPG','VR']

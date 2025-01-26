@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from 'react';
 import { View, StyleSheet, ActivityIndicator } from "react-native";
 
-function LoadingScreen(): React.JSX.Element {
+function Loading(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" />
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoadingScreen;
+export default Loading;

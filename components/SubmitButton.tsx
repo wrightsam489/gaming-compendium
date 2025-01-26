@@ -3,16 +3,15 @@ import CustomButton from "./CustomButton";
 import { PropsWithChildren } from "react";
 import * as React from 'react';
 
-type LinkButtonProps = PropsWithChildren<{
+type SubmitButtonProps = PropsWithChildren<{
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
-  title: string;
 }>;
 
-function LinkButton({onPress, title}: LinkButtonProps) {
+function SubmitButton({onPress}: SubmitButtonProps) {
     return (
         <CustomButton 
             onPress={onPress}
-            title={title}
+            title="Submit"
             buttonStyle={styles.buttonStyle}
             textStyle={styles.textStyle}      
         />
@@ -21,16 +20,16 @@ function LinkButton({onPress, title}: LinkButtonProps) {
 
 const styles = StyleSheet.create({
     buttonStyle: {
-      alignItems: 'center',
-      alignSelf: 'center',
+      backgroundColor: "#2196F3",
+      borderRadius: 5
     },
     textStyle: {
-      color: "#2196F3",
       textAlign: "center",
-      textTransform: "none",
-      fontWeight: 'normal',
-      textDecorationLine: "underline",
+      textTransform: "uppercase",
+      fontWeight: 'bold',
+      color: '#fff',
+      padding: 10
     }
 });
 
-export default LinkButton;
+export default SubmitButton;

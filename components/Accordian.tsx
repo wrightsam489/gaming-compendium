@@ -2,7 +2,7 @@ import { PropsWithChildren, useState } from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Header from './Header';
 import Game, { GameData } from "./Game";
-import React from "react";
+import * as React from 'react';
 
 type AccordianProps = PropsWithChildren<{
   title: string;
