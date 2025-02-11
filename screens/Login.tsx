@@ -5,7 +5,7 @@ import { useState } from "react";
 import LinkButton from "../components/LinkButton";
 import SubmitButton from '../components/SubmitButton';
 
-function Login() {
+function Login({navigation}: any) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -26,7 +26,7 @@ function Login() {
                     placeholder="Password"
                     onChangeText={setPassword}
                 />
-                <SubmitButton />
+                <SubmitButton onPress={() => { navigation.navigate('Home', {}); }}/>
 
                 <View style={styles.groupButtons}>
                     <LinkButton title="Create new account"/>
