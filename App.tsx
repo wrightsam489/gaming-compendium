@@ -12,7 +12,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: true, headerBackVisible: false }} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: true, headerBackVisible: true }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
