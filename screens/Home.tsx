@@ -1,34 +1,27 @@
 import * as React from 'react';
-import { Text, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
-import Accordian from "../components/Accordian";
-import { FetchRecommendedGames } from '../hooks/IGDBApi';
+import { Text, SafeAreaView, Image, ScrollView, StyleSheet, View, FlatList } from "react-native";
+import { FetchAllGenres } from '../hooks/IGDBApi';
+import GamesByGenreView from '../components/GamesByGenreView';
 
 function Home(): React.JSX.Element {
-  const items = ['New Releases','Recommendations','Action','Puzzle','Mystery','RPG','VR']
 
-  const { data, isPending, error } = FetchRecommendedGames();
+  const { data: genres, isPending, error } = FetchAllGenres();
 
   return (
     <SafeAreaView style={styles.content}>
-      { !isPending &&
-        <ScrollView>
-          <Text>{data}</Text>
-          {
-            items.map((item, _) => (
-              <Accordian title={item} isInitiallyOpen={true}></Accordian>
-            ))
-          }
-        </ScrollView>
+      { isPending && <Text>Loading...</Text>}
+      { !isPending && 
+        <FlatList
+          data={genres}
+          renderItem={({ item: genre }) => (<GamesByGenreView id={genre.id} name={genre.name}/>)}
+          keyExtractor={(genre) => genre.id.toString()}
+        />
       }
     </SafeAreaView>
   )
 };
 
 const styles = StyleSheet.create({
-  toolbar: {
-    backgroundColor: "lightgrey",
-    padding: 10
-  },
   content: {
     margin: 10
   },
