@@ -41,19 +41,21 @@ function GamesByGenreView({id, name}: GenreProps) {
 
     return (
         <Accordian 
-            title={name}
+            title={name} //+ " - " + id}
             isInitiallyOpen={true}
             content={ 
               <View>
-                { isPending && <Header title='Loading' />}
-                { !isPending && 
+                {isPending ? (
+                  <Header title='Loading'/>
+                ) : (
                   <FlatList
                     data={games}
                     renderItem={renderItem}
                     keyExtractor={(game) => game.id.toString()}
                     horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                   />
-                }
+                )}
               </View>
             }         
         />

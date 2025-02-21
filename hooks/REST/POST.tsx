@@ -14,7 +14,7 @@ export function usePost(url: string, headers: any = { "Content-Type": "applicati
         })
           .then(res => {
             if(!res.ok) {
-              throw new Error(`HTTP Error: ${res.status}`);
+              throw new Error(`HTTP Error for ${url}: ${res.status}`);
             }
             return res.json();
           })
@@ -25,7 +25,7 @@ export function usePost(url: string, headers: any = { "Content-Type": "applicati
             setError(null);
           })
           .catch(err => {
-            console.error('Fetch error:', err);
+            console.error(`Fetch error:`, err);
             setIsPending(false);
             setError(err.message);
           })

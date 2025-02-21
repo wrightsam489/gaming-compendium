@@ -14,7 +14,7 @@ export function FetchGamesById(gameId: number) {
     return usePost(
         DEFAULT_URL + "games", 
         HEADERS, 
-        `fields id,name,genres,cover.url; where id = (${gameId});`
+        `fields id, name, genres, cover.url; where id = (${gameId});`
     )
 }
 
@@ -22,7 +22,7 @@ export function FetchRecommendedGamesByGenre(genreId: number) {
     return usePost(
         DEFAULT_URL + "games", 
         HEADERS, 
-        `fields name,genres,cover.url; where genres.id = (${genreId}); limit 5;`
+        `fields name, genres, cover.url; where genres = (${genreId}); limit 5;`
     )
 }
 
@@ -30,6 +30,6 @@ export function FetchAllGenres() {
     return usePost(
         DEFAULT_URL + "genres", 
         HEADERS, 
-        `fields name; limit 500;`
+        `fields name; limit 5;`
     )
 }
