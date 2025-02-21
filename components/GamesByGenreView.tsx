@@ -29,10 +29,13 @@ function GamesByGenreView({id, name}: GenreProps) {
     const renderItem = ({item}: {item: GameProps}) => {
       const correctedUrl = `https:${item.cover.url}`;
       return (
+        <View>
           <Image
             style={styles.cover}
             source={{uri: correctedUrl}}
           />
+          <Text style={styles.gameTitle}>{item.name}</Text>   
+        </View>
       );
     };
 
@@ -62,7 +65,9 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginRight: 10,
-    borderColor: '#000000'
+  },
+  gameTitle: {
+    width: 100,
   },
 });
 

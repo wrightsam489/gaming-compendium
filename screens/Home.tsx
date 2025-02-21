@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { Text, SafeAreaView, Image, ScrollView, StyleSheet, View, FlatList } from "react-native";
-import { FetchAllGenres } from '../hooks/IGDBApi';
+import { Image, SafeAreaView, StyleSheet, FlatList, View } from "react-native";
+import { FetchAllGenres, FetchGamesById } from '../hooks/IGDBApi';
 import GamesByGenreView from '../components/GamesByGenreView';
+import Header from '../components/Header';
 
 function Home(): React.JSX.Element {
 
   const { data: genres, isPending, error } = FetchAllGenres();
+  // const { data: game, isPending, error } = FetchGamesById(1);
 
   return (
     <SafeAreaView style={styles.content}>
-      { isPending && <Text>Loading...</Text>}
+      { isPending && <Header title='Loading...' />}
       { !isPending && 
         <FlatList
           data={genres}
@@ -24,6 +26,11 @@ function Home(): React.JSX.Element {
 const styles = StyleSheet.create({
   content: {
     margin: 10
+  },  cover: {
+    width: 100,
+    height: 100,
+    marginRight: 10,
+    borderColor: '#000000'
   },
 });
 
